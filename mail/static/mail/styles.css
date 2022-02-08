@@ -5,3 +5,6 @@ body{
 textarea {
     min-height: 300px;
 }
+.read {
+    background-color: lightgrey;
+}
