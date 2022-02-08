@@ -66,7 +66,7 @@ function load_mailbox(mailbox) {
     mailbox.charAt(0).toUpperCase() + mailbox.slice(1)
   }</h3>`;
 
-  if (mailbox == "show_mail"){ //what does this mean?
+  if (mailbox == "show_mail"){ 
     show_mail();
     return;
   }

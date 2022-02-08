@@ -138,11 +138,15 @@ def login_view(request):
         # Check if authentication successful
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            # return HttpResponseRedirect(reverse("index"))
+            return HttpResponse(status=204)
+
         else:
-            return render(request, "mail/login.html", {
-                "message": "Invalid email and/or password."
-            })
+            # return render(request, "mail/login.html", {
+            #     "message": "Invalid email and/or password." })
+            return JsonResponse({
+            "error": "Invalid email and /or password."
+        }, status=400)
     else:
         return render(request, "mail/login.html")
 
@@ -174,6 +178,10 @@ def register(request):
                 "message": "Email address already taken."
             })
         login(request, user)
-        return HttpResponseRedirect(reverse("index"))
+        # return HttpResponseRedirect(reverse("index"))
+        return HttpResponse(status=204)
     else:
-        return render(request, "mail/register.html")
+        # return render(request, "mail/register.html")
+        return JsonResponse({
+            "error": "GET or PUT request required."
+        }, status=400)
